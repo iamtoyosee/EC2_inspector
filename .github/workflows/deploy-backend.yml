@@ -27,7 +27,21 @@ jobs:
 
       - name: Sync Backend Files
         run: |
-          rsync -avz --delete ./ ec2-user@98.81.199.217:/var/www/EC2_inspector
+          rsync -avz --delete --exclude 'venv/' ./ ec2-user@98.81.199.217:/var/www/EC2_inspector
+
+      - name: Install Backend Dependencies
+        run: |
+          ssh ec2-user@98.81.199.217 << EOF
+            cd /var/www/EC2_inspector
+            # Create the virtual environment if it doesn't exist
+            if [ ! -d "venv" ]; then
+                python3 -m venv venv
+            fi
+            # Activate the virtual environment
+            source venv/bin/activate
+            # Install/update dependencies
+            pip install -r requirements.txt
+          EOF
 
       - name: Restart Gunicorn
         run: |
