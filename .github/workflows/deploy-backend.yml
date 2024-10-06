@@ -21,6 +21,10 @@ jobs:
       - name: Install rsync
         run: sudo apt-get install -y rsync
 
+      - name: Add EC2 to known hosts
+        run: |
+          ssh-keyscan -H 98.81.199.217 >> ~/.ssh/known_hosts
+
       - name: Sync Backend Files
         run: |
           rsync -avz --delete ./ ec2-user@98.81.199.217:/var/www/EC2_inspector
