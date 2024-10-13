@@ -9,7 +9,8 @@ from flask_cors import CORS
 # Create the Flask app
 def create_app():
     app = Flask(__name__)
-    CORS(app)
+    CORS(app, resources={r"/*": {"origins": "*"}})  # For all origins
+
 
     # Register blueprints
     app.register_blueprint(aws_credentials_bp)
