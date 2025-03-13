@@ -21,7 +21,7 @@ def list_ec2_instances():
                     "PublicIpAddress": instance.get('PublicIpAddress', 'N/A')
                 })
 
-        return jsonify({"instances": instances})
+        return jsonify({"instance": instances})
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
