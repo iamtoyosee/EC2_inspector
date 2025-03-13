@@ -9,7 +9,7 @@ def check_security_groups():
     instance_id = data.get('instance_id')
 
     if not instance_id:
-        return jsonify({"error": "Missing instance ID"}), 400
+        return jsonify({"error": "Missing "}), 400
 
     ec2_client, error = get_aws_client('ec2')
 
