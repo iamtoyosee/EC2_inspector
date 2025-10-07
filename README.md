@@ -1,6 +1,6 @@
 # EC2 Inspector
 
-**EC2 Inspector** is a Flask-based application that allows users to inspect their AWS EC2 instances for potential security vulnerabilities, such as open ports and security groups that allow traffic from all IP addresses (0.0.0.0/0). This tool aims to help cloud engineers and developers ensure their EC2 instances are configured securely and in line with best practices.
+**EC2 Vulnerability Inspector** is a Flask-based application that allows users to inspect their AWS EC2 instances for potential security vulnerabilities, such as open ports and security groups that allow traffic from all IP addresses (0.0.0.0/0). This tool aims to help cloud engineers and developers ensure their EC2 instances are configured securely and in line with best practices.
 
 ## Features
 
